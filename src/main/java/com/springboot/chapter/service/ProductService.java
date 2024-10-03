@@ -14,7 +14,7 @@ public class ProductService {
 	
 	public Product save(Product product) throws Exception {
 		
-		if(product.getName().isBlank() )  throw new Exception();
+		if(product.getName().isBlank() )  throw new Exception("name field can not be blank");
 		
 		return  productRepository.save(product);
 		

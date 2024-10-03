@@ -1,5 +1,7 @@
 package com.springboot.chapter.controller;
 
+
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +14,11 @@ import com.springboot.chapter.entity.Product;
 import com.springboot.chapter.repository.ProductRepository;
 import com.springboot.chapter.service.ProductService;
 
-import ch.qos.logback.classic.Logger;
+
+
+
+
+
 
 @Controller 
 @ResponseBody
@@ -22,7 +28,9 @@ import ch.qos.logback.classic.Logger;
 @RequestMapping("product/")
 public class ProductController {
 	
-	Logger logger = (Logger) LoggerFactory.getLogger(ProductController.class);
+	final Logger logger = LoggerFactory.getLogger(ProductController.class);
+	
+
 	
 	@Autowired
 	ProductService productService ;
@@ -30,7 +38,7 @@ public class ProductController {
 	@PostMapping("save")
 	public Product saveProduct(@RequestBody Product p ) throws Exception {
 		
-		logger.info("transaction start ");
+		logger.info("save method invoked by the controller");
 		
 		return productService.save(p);
 	}
