@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import com.springboot.chapter.DummyData.ProductData;
 import com.springboot.chapter.repository.ProductRepository;
@@ -12,6 +13,7 @@ import com.springboot.chapter.repository.ProductRepository;
 
 
 @SpringBootApplication
+@EnableScheduling 
 public class ChapterApplication implements CommandLineRunner {
 	
 	
@@ -26,7 +28,7 @@ public class ChapterApplication implements CommandLineRunner {
 		
 		ProductData pd = new ProductData();
 		
-		pd.createHunderedProducts();
+//	   pd.createHunderedProducts();
 		
 	}
 	
